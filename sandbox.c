@@ -14,6 +14,10 @@ char *exec = argv[1];
 char *log = argv[2];
 struct rlimit cpuLimit = {2, 2};
 setrlimit(RLIMIT_CPU, &cpuLimit);
+struct rlimit mem;
+mem.rlim_cur = 100 * 1024 * 1024;
+mem.rlim_max = 100 * 1024 * 1024;
+setrlimit(RLIMIT_AS , &mem);
 pid_t pid = fork();
 if(pid < 0){
     perror("Failed to fork");
@@ -33,9 +37,11 @@ else{
     waitpid(pid, &status, 0);
     if(WIFEXITED(status)){
         printf("Program exited with %d\n" , WEXITSTATUS(status));
+        return WEXITSTATUS(status);
     }
     else if(WIFSIGNALED(status)){
         printf("Program killed by %d\n" , WTERMSIG(status));
+        return -WTERMSIG(status);
     }
 }
 return 0;
