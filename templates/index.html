@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure C Code Sandbox</title>
+    <style>
+        body {
+            font-family: monospace;
+            max-width: 800px;
+            margin: auto;
+            padding-top: 40px;
+        }
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        .status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        pre {
+            background-color: #f4f4f4;
+            border-left: 4px solid #ccc;
+            padding: 15px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Secure C Code Sandbox</h1>
+
+    <form method="POST" action="/run" enctype="multipart/form-data">
+        <label for="code">Upload a .c file:</label><br>
+        <input type="file" name="code" accept=".c" required><br>
+        <input type="submit" value="Run Code">
+    </form>
+
+    {% if filename %}
+        <div class="status">File: {{ filename }}</div>
+    {% endif %}
+
+    {% if status %}
+        <div class="status">Status: {{ status }}</div>
+    {% endif %}
+
+    {% if output %}
+        <h3>Program Output:</h3>
+        <pre>{{ output }}</pre>
+    {% endif %}
+</body>
+</html>
