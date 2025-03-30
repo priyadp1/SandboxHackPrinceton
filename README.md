@@ -1,39 +1,39 @@
-Secure C Code Sandbox
+**Secure C Code Sandbox**
 A simple, secure environment to compile and run untrusted C code with enforced resource limits. Built with C for the sandbox, Flask for the web interface, and HTML for the frontend. Deployed on Amazon EC2.
 
-What It Does
+**What It Does**
 This project allows you to upload .c files, which are:
 
-Compiled using GCC
+1.Compiled using GCC
 
-Executed inside a custom-built sandbox with CPU and memory limitations
+2.Executed inside a custom-built sandbox with CPU and memory limitations
 
-Logs and displays the output securely
+3.Logs and displays the output securely
 
-How to Use
-Upload a C file via the web interface or REST API.
+**How to Use**
+1.Upload a C file via the web interface or REST API.
 
-The file is compiled and executed in a controlled environment.
+2.The file is compiled and executed in a controlled environment.
 
-View the output, execution time, and status.
+3.View the output, execution time, and status.
 
-Live Demo:
-Try it here
+**Live Demo:**
+http://ec2-44-222-208-27.compute-1.amazonaws.com/
 
-Tools Used
-C for sandbox execution and resource control
+**Tools Used**
+1.**C** for sandbox execution and resource control
 
-Python (Flask) for the web interface and REST API
+2.**Python (Flask)** for the web interface and **REST API**
 
-HTML for the frontend web interface
+3.**HTML** for the frontend web interface
 
-GCC for compiling C code
+4.**GCC** for compiling C code
 
-Amazon EC2 for deployment
+5.**Amazon EC2** for deployment
 
-About Me
+**About Me**
 Prisha Priyadarshini
 Sophomore CS Major @ TCNJ
-LinkedIn
+https://www.linkedin.com/in/prisha-priyadarshini/
 prishapriya31@gmail.com
 
